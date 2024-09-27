@@ -1,0 +1,797 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+    
+}
+input:checked + .slider {
+    background-color: black;
+}
+ 
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+ 
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+.theme-switch {
+    margin-left: auto;
+    margin-right: 20px;
+}
+ 
+.switch {
+    position: relative;
+    display: flex;
+    width: 50px;
+    height: 24px;
+}
+ 
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+ 
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+ 
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+header.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-list li {
+    margin-right: 20px;
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.nav-list li:hover {
+    background-color: goldenrod;
+}
+
+.nav-list a.light-mode {
+    color: #333;
+}
+
+.nav-list a.dark-mode {
+    color: #fff;
+}
+
+.nav-toggle {
+    display: none;
+}
+/* 
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 500px;
+    align-items: center;
+    gap: 20px; 
+    justify-content: space-between;
+    padding: 20px;
+    border: 100px solid whitesmoke;
+    transition: background-color 0.3s ease;
+}
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        margin-left: 0;
+    }
+  }
+
+.profile-container.light-mode {
+    background-color: #f0f0f0;
+}
+
+.dark-mode .profile-container {
+    background-color: #333;
+    border: 100px solid black; /* Dark mode border color 
+}
+.profile-image {
+    width: 100px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 60px;
+    align-items: right;
+    float: right;
+    padding-left: 300px;
+    padding-top: 40px;
+    transition: border-color 0.3s ease;
+    flex: 2;
+
+}
+
+
+.profile-info {
+    flex: 1;  /* Ensures the text takes up remaining space 
+    padding-right: 500px;
+    padding-bottom: 100px;
+    margin-top: -400px;
+    /* Aligns the text to the left */
+
+
+/*.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+    justify-content: space-between;
+    padding: 2em;
+    transition: background-color 0.3s ease;
+}
+*/
+/* General styling for the profile container */
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 50px;
+    border: 70px solid whitesmoke;
+    margin-top: 50px;
+}
+.profile-container.light-mode {
+    background-color: #f0f0f0;
+}
+
+.dark-mode .profile-container {
+    background-color: #333;
+    border: 100px solid black; /* Dark mode border color */
+}
+/* Styling for the profile info (name and description) */
+.profile-info {
+    flex: 1;
+    text-align: left;
+}
+
+.profile-info h1 {
+    margin-left: 30px;
+    font-size: 24px;
+
+}
+.profile-info h2 {
+    margin-left: 30px;
+    font-size: 24px;
+
+}
+
+.profile-info p {
+    font-size: 16px;
+    margin-left: 100px;
+    
+}
+
+/* Styling for the profile image */
+.profile-image img {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid black;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+    /* Make the profile container column-based instead of row-based */
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 200px;
+    }
+
+    /* Adjust the profile info to be centered */
+    .profile-info {
+        margin-bottom: 20px; /* Add some space between name and picture */
+    }
+
+    /* Make the profile image center */
+    .profile-image {
+        text-align: center;
+    }
+    .profile-info h1 {
+        margin-left: -10px;
+        font-size: 16px;
+    
+    }
+    .profile-info h2 {
+        margin-left: -10px;
+        font-size: 16px;
+    
+    }
+    .profile-info p {
+        font-size: 16px;
+        margin-top: 40px;
+        
+    }
+    /* Adjust image size for smaller screens */
+    .profile-image img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.skills {
+
+    padding: 20px;
+    border: 70px solid whitesmoke;
+    text-align: center;
+  }
+.skills .skills-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: -50px;
+    gap: 2rem;
+}
+ 
+.skills-container .skills-box{
+    flex: 1 1 30rem;
+    background: var(--bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    box-shadow: 0.1rem .5rem var(--main-color);
+    text-align: center;
+    border-top: .2rem solid var(--main-color);
+    border-bottom: .2rem solid var(--main-color);
+}
+ 
+.skills-container .skills-box img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.skills-container .skills-box2{
+    flex: 1 1 30rem;
+    background: var(--bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    box-shadow: 0.1rem .5rem var(--main-color);
+    text-align: center;
+    border-top: .2rem solid var(--main-color);
+    border-bottom: .2rem solid var(--main-color);
+}
+ 
+.skills-container .skills-box2 img {
+    width: 100px;
+    height: auto;
+   
+    margin-top: -100px;
+}
+.skills-container .skills-box3 img {
+    width: 100px;
+    height: auto;
+   
+    margin-top: -100px;
+}
+.dark-mode .skills {
+    background-color: #333;
+    border: 100px solid black; /* Dark mode border color */
+}
+ 
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width:600px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+.profile-image.light-mode {
+    border-color: #333;
+}
+
+.profile-image.dark-mode {
+    border-color: #fff;
+}
+/*
+.social-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-links li {
+    margin-right: 20px;
+}
+
+.social-links a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a.light-mode {
+    color: #333;
+}
+
+.social-links a.dark-mode {
+    color: #fff;
+}*/
+
+.skills-container, .experience-container, .projects-container, .Hobbies-container, .contact-container {
+    padding: 2em;
+    width: 80%;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+}
+
+.skills-container.light-mode, .experience-container.light-mode, .projects-container.light-mode,  .Hobbies-container.light-mode, .contact-container.light-mode {
+
+    background-color: #f0f0f0;
+}
+
+.skills-container.dark-mode, .experience-container.dark-mode, .projects-container.dark-mode,   .Hobbies-container.dark-mode, .contact-container.dark-mode {
+
+     background-color: #333;
+}
+
+.skills-container ul, .experience-container ul, .Hobbies-container ul, .projects-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skills-container li, .experience-container li, .Hobbies-container li, .projects-container li {
+    margin-bottom: 10px;
+}
+.experience-container.light-mode {
+    background-color: #f0f0f0;
+}
+
+.dark-mode .experience-container {
+    background-color: #333;
+    border: 100px solid black; /* Dark mode border color */
+}
+
+.experience1 {
+    float: left;
+    width: 45%;
+    flex: 1;
+    padding: 5px;
+  }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .experience2 {
+    float: right;
+    width: 45%;
+    flex: 1;
+    padding: 5px;
+  }
+  
+  /* Clear floats after the columns */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+    /* Make the profile container column-based instead of row-based */
+    .experience-container {
+        flex-direction: column;
+        margin-top: 200px;
+    }
+    .row::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    /* Adjust image size for smaller screens */
+     .row img {
+    float: left;
+    width: 4px;
+    flex: 1;
+    height: 4px;
+    }
+   
+    .row img {
+        float: right;
+        width: 4px;
+        flex: 1;
+        height: 4px;
+       
+        
+    }
+}
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+
+
+.Hobbies-container {
+    display: flex;
+    justify-content: space-between; /* Ensure equal space between partitions */
+    align-items: stretch; /* Make sure all items stretch to the same height */
+    gap:2px; /* Adds space between the items */
+   
+}
+ 
+/* Flex items for each partition */
+.Hobbies {
+    flex: 1; /* Each partition takes up equal width */
+    padding: 20px;
+    border: 2px solid whitesmoke;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Styling for the title inside each partition */
+.Hobbies-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+.Hobbies .Hobbies-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+@media screen and (max-width:800px) {
+    .column {
+      width: 100%;
+    }
+
+    .Hobbies-container{
+        display: block;
+    }
+  }
+  
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-container input, .contact-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-container input.light-mode, .contact-container textarea.light-mode {
+    border-color: #333;
+}
+
+.contact-container input.dark-mode, .contact-container textarea.dark-mode {
+    border-color: #fff;
+}
+
+.contact-container button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-container button.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.contact-container button.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.contact-container button:hover {
+    background-color: #444;
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 1200px) {
+    .nav-container {
+        flex-direction: column;
+    }
+
+    .nav-list {
+        flex-direction: column;
+    }
+
+    .nav-list li {
+        margin-right: 0;
+    }
+
+    .nav-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        margin-bottom: 5px;
+    }
+
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .profile-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-links {
+        flex-direction: column;
+    }
+
+    .social-links li {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-image {
+        width: 30px;
+        height: 30px;
+    }
+
+    .social-links li {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .profile-image {
+        width: 20px;
+        height: 20px;
+    }
+
+    .social-links li {
+        margin-bottom: 5px;
+    }
+}
+/* styles.css */
+
+.home-button {
+    position: bottom;
+    padding-right: 600px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    padding-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: blue;
+}
+
+.home-button.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.home-button.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+
+
+
+.projects-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 30px solid whitesmoke;
+    margin-top: 50px;
+    border-radius: 50px;
+}
+.projects-container.light-mode {
+    background-color: #f0f0f0;
+}
+
+.dark-mode .projects-container {
+    background-color: #333;
+    border: 100px solid black; /* Dark mode border color */
+}
+/* Styling for the profile info (name and description) */
+
+.project1 {
+    flex: 1;
+    margin-top: 100px;
+
+    text-align: left;
+}
+
+.project1 h2 {
+    margin-left: 30px;
+    font-size: 24px;
+    padding-right: 80%;
+
+}
+
+.project1 p {
+    font-size: 16px;
+    margin-right: 5px;
+    padding-right: 600px;    
+}
+.project2 {
+    flex: 1;
+    text-align: left;
+}
+
+.project2 h2 {
+    margin-left: 30px;
+    padding-right: 90%;
+    font-size: 24px;
+
+}
+
+.project2 p {
+    font-size: 16px;
+    margin-right: 5px;
+    padding-left: 600px;
+
+    
+}
+/* Styling for the profile image */
+.project1 img {
+    width: 450px;
+    height: 450px;
+    border-radius: 70%;
+    margin-top: -200px;
+    margin-left: 500px;
+    object-fit: cover;
+    border: 1px solid black;
+}
+.project2 img {
+    width: 450px;
+    height: 450px;
+    border-radius: 70%;
+    object-fit: cover;
+    margin-top: -150px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+
+
+    border: 1px solid black;
+}
+
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+    /* Make the profile container column-based instead of row-based */
+    .projects-container {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 200px;
+    }
+
+    /* Adjust the profile info to be centered */
+    .projects {
+        margin-bottom: 20px; /* Add some space between name and picture */
+    }
+
+    /* Make the profile image center */
+    .project1 {
+        text-align: left;
+        display: block;
+    }
+    .project1 h2 {
+        margin-left: -10px;
+        font-size: 16px;
+    
+    }
+    .project2 h2 {
+        margin-left: -10px;
+        font-size: 16px;
+    
+    }
+    .project1 p {
+        padding-right: 0;
+    }
+
+    .project2 p {
+        font-size: 16px;
+        margin-top: 40px;
+        padding-left: 0;
+    }
+   
+    /* Adjust image size for smaller screens */
+    .project1 img {
+        width: 20px;
+        padding-right: -60px;
+        height: 20px;
+        margin-left: 0%;
+        margin-top: 0%;
+    }
+    .project2 img {
+        width: 20px;
+        padding-right: -60px;
+        height: 20px;
+        margin-top: 0%;
+    }
+}
